@@ -16,6 +16,10 @@ public class MyEnversPreUpdateEventListenerImpl extends EnversPreUpdateEventList
             return true;
         }
 
+        if (event.getEntity() instanceof Address && ((Address) event.getEntity()).getCity().equals("save")) {
+            return true;
+        }
+
         return super.onPreUpdate(event);
     }
 
