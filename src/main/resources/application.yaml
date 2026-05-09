@@ -1,0 +1,20 @@
+server:
+  port : 8081
+
+# Details for our datasource
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/Test
+    username: admin
+    password: admin
+# Hibernate properties
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    properties:
+      hibernate:
+        format_sql: true
