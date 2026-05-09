@@ -1,9 +1,11 @@
 package org.learning.hibernate;
 
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.envers.boot.internal.EnversService;
 import org.hibernate.envers.event.spi.EnversPreUpdateEventListenerImpl;
 import org.hibernate.event.spi.PreUpdateEvent;
 
+@Slf4j
 public class MyEnversPreUpdateEventListenerImpl extends EnversPreUpdateEventListenerImpl {
 
     public MyEnversPreUpdateEventListenerImpl(EnversService enversService) {
@@ -13,6 +15,13 @@ public class MyEnversPreUpdateEventListenerImpl extends EnversPreUpdateEventList
     @Override
     public boolean onPreUpdate(PreUpdateEvent event) {
         if (event.getEntity() instanceof Book && ((Book) event.getEntity()).getCity().equals("save")) {
+            log.debug("Book");
+            log.debug("test");
+            return true;
+        }
+
+        if (event.getEntity() instanceof Address && ((Address) event.getEntity()).getCity().equals("save")) {
+            log.debug("Address");
             return true;
         }
 
