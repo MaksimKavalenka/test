@@ -16,6 +16,7 @@ public class MyEnversPreUpdateEventListenerImpl extends EnversPreUpdateEventList
     public boolean onPreUpdate(PreUpdateEvent event) {
         if (event.getEntity() instanceof Book && ((Book) event.getEntity()).getCity().equals("save")) {
             log.debug("Book");
+            log.debug("test");
             return true;
         }
 
